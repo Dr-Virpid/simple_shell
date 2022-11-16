@@ -20,6 +20,7 @@ int main(int __attribute__((__unused__)) argc, char __attribute__((__unused__)) 
 	size_t n;
 	ssize_t read;
 	char *line;
+	char *envp[5];
 
 	line = NULL;
 	while (1)
