@@ -42,7 +42,6 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-
 			if (execve(buffarray[0], buffarray, NULL) == -1)
 				perror("Error exec gone wrong:");
 		}
@@ -50,8 +49,7 @@ int main(void)
 		{
 			wait(&status);
 		}
-		//trying to free the memory
-		//still considering if it's necessary
+		/* free the memory */
 		free(line);
 	}
 	return (0);
