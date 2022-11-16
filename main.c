@@ -20,6 +20,7 @@ int main(void)
 	size_t n;
 	ssize_t read;
 	char *line;
+	char *envp[5];
 
 	line = NULL;
 	while (1)
@@ -42,8 +43,8 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			if (execve(buffarray[0], buffarray, NULL) == -1)
-				perror("Error exec gone wrong:");
+			if (execve(line, buffarray, envp) == -1)
+				printf("%s: No such file or directory\n", buffarray[0]);
 		}
 		else
 		{
