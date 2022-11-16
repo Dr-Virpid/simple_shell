@@ -20,7 +20,6 @@ int main(int __attribute__((__unused__)) argc, char __attribute__((__unused__)) 
 	size_t n;
 	ssize_t read;
 	char *line;
-	char *envp[5];
 
 	line = NULL;
 	while (1)
@@ -33,7 +32,7 @@ int main(int __attribute__((__unused__)) argc, char __attribute__((__unused__)) 
 			printf("read failed\n");
 			return (1);
 		}
-		buffarray[0] = strtok(line, " ");
+		buffarray[0] = strtok(line, " \t\r\n");
 
 		child_pid = fork();
 		if (child_pid == -1)
