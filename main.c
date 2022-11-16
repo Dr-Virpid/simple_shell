@@ -12,7 +12,7 @@
 
 #include "shell.h"
 
-int main(void)
+int main(int __attribute__((__unused__)) argc, char __attribute__((__unused__)) **argv, char *envp[])
 {
 	pid_t child_pid;
 	int status;
@@ -42,7 +42,7 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			if (execve(buffarray[0], buffarray, NULL) == -1)
+			if (execve(buffarray[0], buffarray, envp) == -1)
 				perror("Error exec gone wrong:");
 		}
 		else
