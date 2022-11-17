@@ -1,4 +1,4 @@
-## SIMPLE SHELL
+## hsh - SIMPLE SHELL
 ---
 **A Collaboration on simple shell alx se program task**
 ## Description :speech_balloon:
@@ -114,4 +114,182 @@ $
 `ENV_VARIABLE` is substituted with its value.
 
 Example
+```
+$ echo "echo $PWD" | ./hsh
+/home/vagrant/holberton/simple_shell
+```
 
+#### $?
+`?` is substitued with the return value of the last program executed.
+
+Example:
+```
+$ echo "echo $?" | ./hsh
+0
+```
+
+#### $$
+The second `$` is substitued with the current process ID.
+
+Example:
+```
+$ echo "echo $$" | ./hsh
+6494
+```
+
+### Comments :hash:
+
+**Shellby** ignores all words and characters preceeded by a `#` character on a line.
+
+Example:
+```
+$ echo "echo 'hello' #this will be ignored!" | ./hsh
+'hello'
+```
+
+### Operators :guitar:
+
+**Shellby** specially interprets the following operator characters:
+
+#### ; - Command separator
+Commands separated by a `;` are executed sequentially.
+
+Example:
+```
+$ echo "echo 'hello' ; echo 'world'" | ./hsh
+'hello'
+'world'
+```
+
+#### && - AND logical operator
+`command1 && command2`: `command2` is executed if, and only if, `command1` returns an exit status of zero.
+
+Example:
+```
+$ echo "error! && echo 'hello'" | ./hsh
+./hsh: 1: error!: not found
+$ echo "echo 'all good' && echo 'hello'" | ./hsh
+'all good'
+'hello'
+```
+
+#### || - OR logical operator
+`command1 || command2`: `command2` is executed if, and only if, `command1` returns a non-zero exit status.
+
+Example:
+```
+$ echo "error! || echo 'but still runs'" | ./hsh
+./shellby: 1: error!: not found
+'but still runs'
+```
+
+The operators `&&` and `||` have equal precedence, followed by `;`.
+
+### hsh Builtin Commands :nut_and_bolt:
+
+#### cd
+  * Usage: `cd [DIRECTORY]`
+  * Changes the current directory of the process to `DIRECTORY`.
+  * If no argument is given, the command is interpreted as `cd $HOME`.
+  * If the argument `-` is given, the command is interpreted as `cd $OLDPWD` and the pathname of the new working directory is printed to standad output.
+  * If the argument, `--` is given, the command is interpreted as `cd $OLDPWD` but the pathname of the new working directory is not printed.
+  * The environment variables `PWD` and `OLDPWD` are updated after a change of directory.
+
+Example:
+```
+$ ./hsh
+$ pwd
+/home/vagrant/holberton/simple_shell
+$ cd ../
+$ pwd
+/home/vagrant/holberton
+$ cd -
+$ pwd
+/home/vagrant/holberton/simple_shell
+```
+
+#### alias
+  * Usage: `alias [NAME[='VALUE'] ...]`
+  * Handles aliases.
+  * `alias`: Prints a list of all aliases, one per line, in the form `NAME='VALUE'`.
+  * `alias NAME [NAME2 ...]`: Prints the aliases `NAME`, `NAME2`, etc. one per line, in the form `NAME='VALUE'`.
+  * `alias NAME='VALUE' [...]`: Defines an alias for each `NAME` whose `VALUE` is given. If `name` is already an alias, its value is replaced with `VALUE`.
+
+Example:
+```
+$ ./hsh
+$ alias show=ls
+$ show
+AUTHORS            builtins_help_2.c  errors.c         linkedlist.c        shell.h       test
+README.md          env_builtins.c     getline.c        locate.c            hsh
+alias_builtins.c   environ.c          helper.c         main.c              split.c
+builtin.c          err_msgs1.c        helpers_2.c      man_1_simple_shell  str_funcs1.c
+builtins_help_1.c  err_msgs2.c        input_helpers.c  proc_file_comm.c    str_funcs2.c
+```
+
+#### exit
+  * Usage: `exit [STATUS]`
+  * Exits the shell.
+  * The `STATUS` argument is the integer used to exit the shell.
+  * If no argument is given, the command is interpreted as `exit 0`.
+
+Example:
+```
+$ ./hsh
+$ exit
+```
+
+#### env
+  * Usage: `env`
+  * Prints the current environment.
+
+Example:
+```
+$ ./hsh
+$ env
+NVM_DIR=/home/vagrant/.nvm
+...
+```
+
+#### setenv
+  * Usage: `setenv [VARIABLE] [VALUE]`
+  * Initializes a new environment variable, or modifies an existing one.
+  * Upon failure, prints a message to `stderr`.
+
+Example:
+```
+$ ./hsh
+$ setenv NAME Poppy
+$ echo $NAME
+Poppy
+```
+
+#### unsetenv
+  * Usage: `unsetenv [VARIABLE]`
+  * Removes an environmental variable.
+  * Upon failure, prints a message to `stderr`.
+
+Example:
+```
+$ ./hsh
+$ setenv NAME Poppy
+$ unsetenv NAME
+$ echo $NAME
+
+$
+```
+
+## Authors :black_nib:
+
+* Simon Tagbor <[Simontagbor](https://github.com/Simontagbor)>
+* Jesutofunmi Ogunbona <[Dr-Virpid](https://github.com/Dr-Virpid)>
+
+## License :lock:
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## Acknowledgements :pray:
+
+**hsh** emulates basic functionality of the **sh** shell. This README borrows form the Linux man pages [sh(1)](https://linux.die.net/man/1/sh) and [dash(1)](https://linux.die.net/man/1/dash).
+
+This project was written as part of the curriculum for ALX Software Engineering School is an online-based full-stack software engineering program that prepares students for careers in the tech industry using project-based peer learning.
