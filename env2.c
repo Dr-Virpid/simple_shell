@@ -57,7 +57,7 @@ int _setenv(shell_t *shell, char *name, char *value, int overwrite)
 			{
 				free(envv);
 				shell->environ[i] = backup;
-				return (1); /* TODO => Set errno */
+				return (1);
 			}
 			shell->environ[i] = newenv;
 			free(envv);
