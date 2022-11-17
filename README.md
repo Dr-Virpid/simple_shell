@@ -1,4 +1,4 @@
-## SIMPLE SHELL
+## hsh - SIMPLE SHELL
 ---
 **A Collaboration on simple shell alx se program task**
 ## Description :speech_balloon:
@@ -19,7 +19,7 @@ gcc *.c -o hsh
 
 Example:
 ```
-$ echo "echo 'hello'" | ./hush
+$ echo "echo 'hello'" | ./hsh
 'hello'
 $
 ```
@@ -75,7 +75,7 @@ $
 ## Authors :black_nib:
 
 * Simon Tagbor<[Simontagbor](https://github.com/SimonTagbor)>
-* Jesu <[Dr]https://github.com/)>
+* Jesutofunmi Ogunbona <[Dr-Virpid](https://github.com/Dr-Virpid)>
 
 ## License :lock:
 
@@ -88,7 +88,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 This project was written as part of the curriculum for Holberton School. Holberton School is a campus-based full-stack software engineering program that prepares students for careers in the tech industry using project-based peer learning. For more information, visit [this link](https://www.holbertonschool.com/).
 
 ```
-$ echo "echo $OLDPWD" | ./shellby
+$ echo "echo $OLDPWD" | ./hsh
 etenv NAME Poppy
 $ unsetenv NAME
 $ echo $NAME
