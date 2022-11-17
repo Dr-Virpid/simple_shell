@@ -292,4 +292,4 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 **hsh** emulates basic functionality of the **sh** shell. This README borrows form the Linux man pages [sh(1)](https://linux.die.net/man/1/sh) and [dash(1)](https://linux.die.net/man/1/dash).
 
-This project was written as part of the curriculum for ALX Software Engineering School is an online-based full-stack software engineering program that prepares students for careers in the tech industry using project-based peer learning.
+This project was written as part of the curriculum for ALX Software Engineering School. ALX SE School is an online-based full-stack software engineering program that prepares students for careers in the tech industry using project-based peer learning.
